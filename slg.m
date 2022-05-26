@@ -1,5 +1,5 @@
 function res = slg(psm,f,Zf)
-    
+% Line to Ground Fault Analysis
     disp("========Line to Ground Fault at Bus "+num2str(f)+...
         "========");
     global A;

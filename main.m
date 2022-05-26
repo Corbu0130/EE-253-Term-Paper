@@ -1,3 +1,5 @@
+% John Michael P. Corbeta
+% Replication of Napao2015 study to the Mindanao Grid
 clc; clear;
 
 a = cos(2*pi/3)+1i*sin(2*pi/3);
@@ -7,6 +9,8 @@ A = [ 1     1       1;
       1     a       a^2
     ];
 
+% csv files extracted from Ybus and PF Voltages of 
+% Mindanao Grid PW case 
 tab0 = readcell("Ybus0.csv");
 tab1 = readcell("Ybus1.csv");
 tab2 = readcell("Ybus2.csv");
@@ -20,6 +24,7 @@ psm.zbus0 = y2z(tab0);
 psm.zbus1 = y2z(tab1);
 psm.zbus2 = y2z(tab2);
 
+% Conducting Faults
 % f = 8;
 Zf = 0;
 output = struct();

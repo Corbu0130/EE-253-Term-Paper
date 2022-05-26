@@ -1,4 +1,5 @@
 function zbus = y2z(tab)
+% Generate Zbus from Ybus data
     ybus = zeros(size(tab));
     for k = 1:numel(tab)
         s = tab{k};

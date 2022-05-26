@@ -1,5 +1,5 @@
 function res = l2l(psm,f,Zf)
-    
+% Line to line Fault Analysis
     disp("=========Line to Line Fault at Bus "+num2str(f)+...
         "=========");
     global A;

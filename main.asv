@@ -1,0 +1,16 @@
+clc; clear;
+
+tab0 = readcell("Ybus0.csv");
+tab1 = readcell("Ybus1.csv");
+tab2 = readcell("Ybus2.csv");
+ybus1 = zeros(size(tab));
+for i=1:prod(size(tab))
+    s0 = tab0{i};
+    s1 = tab1{i};
+    s2 = tab2{i};
+    if ~ismissing(s0)
+        s0(find)
+    end
+end
+
+zbus1 = inv(ybus1);

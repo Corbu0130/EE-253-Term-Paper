@@ -1,5 +1,4 @@
 function VSM = blf(psm,Zf)
-    n = psm.n;
     zbus = psm.zbus1;
     E = psm.E;
     

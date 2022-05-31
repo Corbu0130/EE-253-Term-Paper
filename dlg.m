@@ -1,6 +1,5 @@
 function VSM = dlg(psm,Zf)
     global a;
-    n = psm.n;
     zbus0 = psm.zbus0;
     zbus1 = psm.zbus1;
     zbus2 = psm.zbus2;

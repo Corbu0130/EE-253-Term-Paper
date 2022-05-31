@@ -1,16 +1,18 @@
 clc; clear;
 
-tab0 = readcell("Ybus0.csv");
-tab1 = readcell("Ybus1.csv");
-tab2 = readcell("Ybus2.csv");
-ybus1 = zeros(size(tab));
-for i=1:prod(size(tab))
-    s0 = tab0{i};
-    s1 = tab1{i};
-    s2 = tab2{i};
-    if ~ismissing(s0)
-        s0(find)
-    end
-end
+result = struct();
+psm.gen = readtable("Generator.xlsx");
+psm.branch = readtable("Branch.xlsx");
+lfa = readtable("PrefaultVoltage.xlsx");
 
-zbus1 = inv(ybus1);
+psm = makezdata(psm);
+Vm = lfa.Vm;
+Va = lfa.Va.*pi./180;
+psm.E = Vm.*cos(Va) + 1i.*Vm.*sin(Va);
+psm.n = max(lfa.Number);
+
+psm.zbus0 = makeZbus(psm.zdata0);
+psm.zbus1 = makeZbus(psm.zdata1);
+psm.zbus2 = makeZbus(psm.zdata2);
+
+VSM = blf(psm);

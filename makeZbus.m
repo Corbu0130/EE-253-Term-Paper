@@ -1,9 +1,14 @@
 function [zbus] = makeZbus(branches)
+% Algorithm for the formation of sequence Zbus matrices
+% Engr. John Michael P. Corbeta, REE
+    
+    % Sort bus numbers
     branches(:,1:2) = sort(branches(:,1:2),2);
 %     branches = sortrows(branches);
     n = max(branches(:,2));
-    zbus = zeros(n,n);
+    zbus = zeros(n,n); % Initialize zbus with zero elements
 
+    %% Loop thru branch data
     while ~isempty(branches)
         br = branches(1,:);
         branches(1,:) = [];
@@ -48,4 +53,5 @@ function [zbus] = makeZbus(branches)
             (z + zbus(fb,fb) + zbus(tb,tb) -...
             2*zbus(fb,tb));
     end
+
 end

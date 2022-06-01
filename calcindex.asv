@@ -27,5 +27,5 @@ function [AoVI,AAI] = calcindex(psm,VSM)
         AAI(i,1) = daa/dsys;
     end
     AoVI = max(AoVI);
-    AAI = max(AAI);
+    AAI = mean(AAI);
 end

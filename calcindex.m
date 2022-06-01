@@ -5,8 +5,8 @@ function [AoVI,AAI] = calcindex(psm,VSM)
     dsys = sum(dline(:,3));
 
     for i=1:n
-        AoV = find(VSM(i,:)<=Vth);
-        AA = find(VSM(:,i)'<=Vth);
+        AoV = find(VSM(i,:)<Vth);
+        AA = find(VSM(:,i)'<Vth);
         
         a1 = zeros(length(dline),1);
         a2 = zeros(length(dline),1);

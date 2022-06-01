@@ -7,13 +7,14 @@ psm.gen = readtable("Generator.xlsx");
 psm.branch = readtable("Branch.xlsx");
 lfa = readtable("PrefaultVoltage.xlsx");
 
-psm = makezdata(psm);
 Vm = lfa.Vm;
 Va = lfa.Va.*pi./180;
+psm.segments = 5;
 psm.E = Vm.*cos(Va) + 1i.*Vm.*sin(Va);
 psm.n = max(lfa.Number);
 psm.Vth = 0.8;
 psm.N = 1e4;
+psm = makezdata(psm);
 
 psm.zbus0 = makeZbus(psm.zdata0);
 psm.zbus1 = makeZbus(psm.zdata1);

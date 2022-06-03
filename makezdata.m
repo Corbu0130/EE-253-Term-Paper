@@ -77,6 +77,10 @@ function psm = makezdata(psm)
             % Update bus table
             if s<segments
                 bus.Number(end+1) = m;
+                bus.Name(end) = { num2str(s*p) };
+                bus.AreaName(end) = ...
+                    { num2str(branch.FromNumber(k))+...
+                    "-"+num2str(branch.ToNumber(k)) };
                 bus.NomKV(end) = nV;
                 bus.Vm(end) = Vm;
                 bus.Va(end) = Va;

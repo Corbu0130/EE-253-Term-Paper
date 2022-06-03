@@ -4,7 +4,7 @@ function result = case1(psm)
 
     Zf = 0;
     VSM = slg(psm,Zf);
-    [AoVI,AAI] = calcindex(psm,VSM);
-    result = table(AoVI,AAI);
+    result = calcindex(psm,VSM);
+    result.tab = table(result.AoVI,result.AAI);
     
 end

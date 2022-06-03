@@ -18,19 +18,20 @@ function result = case2(psm)
     for i=1:N
         switch(ftype(i))
             case(1)
-                VSM = VSM + slg(psm,Zf);
+                vsm = slg(psm,Zf);
             case(2)
-                VSM = VSM + l2l(psm,Zf);
+                vsm = l2l(psm,Zf);
             case(3)
-                VSM = VSM + dlg(psm,Zf);
+                vsm = dlg(psm,Zf);
             case(4)
-                VSM = VSM + blf(psm,Zf);
+                vsm = blf(psm,Zf);
         end
+        VSM = VSM + vsm;
     end
     
     %% Calculate mean VSM
     VSM = VSM/N;
-    [AoVI,AAI] = calcindex(psm,VSM);
-    result = table(AoVI,AAI);
+    result = calcindex(psm,VSM);
+    result.tab = table(result.AoVI,result.AAI);
     
 end
